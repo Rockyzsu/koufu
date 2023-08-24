@@ -10,7 +10,7 @@ const userPge = require('./detail_page')
 
 
 async function main() {
-    for (let i = 230; i < 400; i++) {
+    for (let i = 1; i < 400; i++) {
         let url = `https://licai.cofool.com/ask/gupiao-${i}.html`;
 
         await fetchData(url).then((res) => {
@@ -19,11 +19,11 @@ async function main() {
             const html = res.data;
             const $ = cheerio.load(html);
             const qa_list = $('div.answer-detail-list');
-            qa_list.each(function () {
+            qa_list.each(async function () {
                 let detail_url = $(this).find('a').attr('href');
                 if (detail_url) {
                     let full_path = HOST + detail_url;
-                    userPge(full_path)
+                    await userPge(full_path)
                 }
             });
         })

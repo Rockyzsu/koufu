@@ -32,8 +32,10 @@ function createDoc(user_id, url) {
     }
 }
 
-function koufuStop(){
+function koufuStop() {
 
     mongoose.disconnect()
 }
-module.exports = { koufuModel, createDoc,koufuStop }
+
+
+module.exports = { koufuModel, createDoc, koufuStop }

@@ -10,7 +10,7 @@ db.connect(DB_URI)
 const cheerio = require('cheerio');
 // const url = 'https://licai.cofool.com/ask/qa_2807052.html'
 
-function userPge(url) {
+async function userPge(url) {
 
   fetchData(url).then((res) => {
     if (!res) { return }
